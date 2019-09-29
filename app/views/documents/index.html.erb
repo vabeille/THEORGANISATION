@@ -1,0 +1,12 @@
+<h2>Les documents créés :</h2>
+
+<% @documents.each do |document| %>
+  <h2><%= document.name %></h2>
+  <p><%= document.client %></p>
+  <p><%= document.subject %></p>
+  <p><%= document.cabinet %></p>
+  <p><%= document.localisation %></p>
+  <p><%= document.year %></p>
+
+
+<% end %>

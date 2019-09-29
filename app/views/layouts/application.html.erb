@@ -17,21 +17,3 @@
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
-
-<html>
-  <head>
-    <title>The Spoon</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-
-  <body>
-    <h1>The Spoon</h1> <!-- Add this -->
-
-    <%= yield %>
-
-    <p>A very simple footer</p>  <!-- Add this -->
-  </body>
-</html>
