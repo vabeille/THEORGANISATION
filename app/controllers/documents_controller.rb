@@ -5,11 +5,11 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @documents = Document.find(params[:id])
+    @document = Document.find(params[:id])
   end
 
   def new
-    @documents = Document.new
+    @document = Document.new
   end
 
   def create
@@ -20,12 +20,12 @@ class DocumentsController < ApplicationController
   end
 
   def edit
-    @documents = Document.find(params[:id])
+    @document = Document.find(params[:id])
   end
 
   def update
     @document = Document.find(params[:id])
-    @document.update(params[:document])
+    @document.update(allowed_params[:document])
     # Will raise ActiveModel::ForbiddenAttributesError
     redirect_to document_path(@document)
   end

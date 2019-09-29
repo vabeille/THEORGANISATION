@@ -1,12 +1,17 @@
+<%= link_to "Nouveau", "documents/new", class: "btn btn-gradient" %>
+
+<%= link_to "Supprimer", "documents/destroy", class: "btn btn-gradient" %>
+
 <h2>Les documents créés :</h2>
 
+
 <% @documents.each do |document| %>
-  <h2><%= document.name %></h2>
+  <h3><%= document.name %></h3>
   <p><%= document.client %></p>
   <p><%= document.subject %></p>
   <p><%= document.cabinet %></p>
   <p><%= document.localisation %></p>
   <p><%= document.year %></p>
-
+  <p>Identifiant (expérimental) :<%= document.id %></p>
 
 <% end %>
