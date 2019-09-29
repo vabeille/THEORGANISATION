@@ -13,5 +13,6 @@
   <p><%= document.localisation %></p>
   <p><%= document.year %></p>
   <p>Identifiant (expérimental) :<%= document.id %></p>
-
-<% end %>
+  <%= link_to "Voir ce document", document_path(document) %>
+  <%= link_to "Supprimer ce document", document_path(document), method: :delete %>
+  <% end %>
