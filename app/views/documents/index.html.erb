@@ -1,18 +1,12 @@
+
+<h1>Bienvenue !</h1>
+<p>Cherchez un document existant</p>
+<%= form_tag(documents_path, method: :get) do %>
+<%= text_field_tag :keyword %>
+<%= submit_tag 'Search' %>
+<% end %>
+
+
+<p>Créez un nouveau document</p>
+
 <%= link_to "Nouveau", "documents/new", class: "btn btn-gradient" %>
-
-<%= link_to "Supprimer", "documents/destroy", class: "btn btn-gradient" %>
-
-<h2>Les documents créés :</h2>
-
-
-<% @documents.each do |document| %>
-  <h3><%= document.name %></h3>
-  <p><%= document.client %></p>
-  <p><%= document.subject %></p>
-  <p><%= document.cabinet %></p>
-  <p><%= document.localisation %></p>
-  <p><%= document.year %></p>
-  <p>Identifiant (expérimental) :<%= document.id %></p>
-  <%= link_to "Voir ce document", document_path(document) %>
-  <%= link_to "Supprimer ce document", document_path(document), method: :delete %>
-  <% end %>

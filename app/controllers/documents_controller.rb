@@ -1,6 +1,11 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR year ILIKE :query"
+      @documents = Document.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @documents = Document.all
+    end
   end
 
   def show
