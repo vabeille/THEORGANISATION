@@ -1,8 +1,14 @@
-<div class="container">
 
-<h1>Organisez vos documents !</h1>
-<p>Référencez vos documents et retrouvez-les facilement</p>
+<h1>Bienvenue !</h1>
+<p>Cherchez un document existant</p>
+<%= form_tag(documents_path, method: :get) do %>
+<%= text_field_tag :keyword %>
+<%= submit_tag 'Search' %>
+<% end %>
 
 
-</div>
+
+<p>Créez un nouveau document</p>
+
+<%= link_to "Nouveau", "documents/new", class: "btn btn-gradient" %>
 

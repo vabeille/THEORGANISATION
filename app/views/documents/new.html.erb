@@ -10,16 +10,17 @@
   <%= f.text_field :client %>
 
   <%= f.label :cabinet %>
-  <%= f.text_field :cabinet %>
+  <%= f.select :cabinet, ['Saint-Tropez', 'Marseille', 'Cogolin']%>
 
   <%= f.label :localisation %>
   <%= f.text_field :localisation %>
 
   <%= f.label :year %>
-  <%= f.text_field :year %>
+  <%= select_year(Date.today, start_year: 1990, end_year: Date.today.year - 2) %>
 
   <%= f.label :subject %>
-  <%= f.text_field :subject %>
+  <%= f.select :subject, ['Comptabilité', 'Social', 'Juridique']%>
 
   <%= f.submit %>
 <% end %>
+
