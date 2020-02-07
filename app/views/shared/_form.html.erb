@@ -1,22 +1,33 @@
-<%= form_for(@document) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :client %>
-  <%= f.text_field :client %>
-
-  <%= f.label :cabinet %>
-  <%= f.text_field :cabinet %>
-
-  <%= f.label :localisation %>
-  <%= f.text_field :localisation %>
-
-  <%= f.label :year %>
-  <%= f.text_field :year %>
-
-  <%= f.label :subject %>
-  <%= f.text_field :subject %>
-
-  <%= f.submit %>
-
-<% end %>
+<div class="container">
+  <%= form_for(@document) do |f| %>
+  <div class="nom">
+    <%= f.label :nom %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="client">
+    <%= f.label :client %>
+    <%= f.text_field :client %>
+  </div>
+  <div class="cabinet">
+    <%= f.label :cabinet %>
+    <%= f.select :cabinet,['Saint-Tropez', 'Marseille ACA', 'Cogolin', 'Paris', 'SGCAM'],  prompt: 'Sélectionnez un cabinet' %>
+  </div>
+  <div class="localisation">
+    <%= f.label :localisation %>
+    <%= f.select :localisation,['Saint-Tropez', 'Marseille ACA', 'Cogolin', 'Paris', 'SGCAM'],prompt: 'Sélectionnez un cabinet' %>
+  </div>
+  <div class="année">
+    <%= f.label :année %>
+    <%= f.select :year, (2000)..(Time.zone.now.year - 3) %>
+  </div>
+  <div class="matière">
+    <%= f.label :matière %>
+    <%= f.select :subject, ['01. Comptabilité', '02. Social', '03. Juridique', '04. Dossiers personnels', '05. Administratif'],prompt: 'Sélectionnez une matière' %>
+  </div>
+  <div class="carton">
+    <%= f.label :carton %>
+    <%= f.text_field :carton %>
+  </div>
+    <%= f.submit %>
+  <% end %>
+</div>

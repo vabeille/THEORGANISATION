@@ -1,18 +1,27 @@
-<p>Aller à l'accueil (ancien index)</p>
+<div class="container">
+  <h1>Bienvenue !</h1>
 
-<!--
-<h1>Bienvenue !</h1>
-<p>Cherchez un document existant</p>
-<#%= form_tag(documents_path, method: :get) do %>
-<#%= text_field_tag :keyword %>
-<#%= submit_tag 'Search' %>
-<#% end %>
+  <!-- Chercher un document -->
+  <!-- TODO : élargir la recherche au client, cabinet... -->
+  <p>Cherchez un document existant</p>
+  <%= form_tag documents_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Chercher un document"%>
+    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+    <% end %>
 
+<!-- Lien vers création d'un document -->
 
+    <p>Créez un nouveau document :</p>
+    <%= link_to "Nouveau", "documents/new", class: "btn btn-gradient" %>
 
-<p>Créez un nouveau document</p>
+<!-- Index qui montre les documents OU documents recherchés -->
+<!-- TODO2 : Ne faire un index qui ne fait que les documents recherchés -->
 
-<#%= link_to "Nouveau", "documents/new", class: "btn btn-gradient" %>
-
- -->
-
+<% @documents.each do |document| %>
+  <h2><%= document.name %></h2>
+  <%= link_to "Supprimer", document, method: :delete, data: { confirm: "Really?" } %>
+<% end %>
+</div>

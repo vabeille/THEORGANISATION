@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.5.3'
+ruby '2.6.5'
 
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+gem 'pg', '~> 1.2', '>= 1.2.2'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
+gem 'pg_search'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -15,7 +16,6 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'pg_search', '~> 2.3', '>= 2.3.2'
 gem 'searchkick', '~> 3.0'
 
 group :development do

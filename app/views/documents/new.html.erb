@@ -1,26 +1,6 @@
 <h1>Documents#new</h1>
 <p>Find me in app/views/documents/new.html.erb</p>
 
+<%= render '/shared/form', document: @document %>
 
-<%= form_for(@document) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :client %>
-  <%= f.text_field :client %>
-
-  <%= f.label :cabinet %>
-  <%= f.select :cabinet, ['Saint-Tropez', 'Marseille', 'Cogolin']%>
-
-  <%= f.label :localisation %>
-  <%= f.text_field :localisation %>
-
-  <%= f.label :year %>
-  <%= select_year(Date.today, start_year: 1990, end_year: Date.today.year - 2) %>
-
-  <%= f.label :subject %>
-  <%= f.select :subject, ['Comptabilité', 'Social', 'Juridique']%>
-
-  <%= f.submit %>
-<% end %>
 

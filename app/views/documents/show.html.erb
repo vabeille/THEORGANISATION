@@ -1,6 +1,11 @@
-<h1>Votre document a bien été créé !</h1>
-<p>Création sous le nom de :</p>
-
+<h1>Votre document a bien été référencé !</h1>
+<p>Référencement sous le nom de :</p>
 <h2><%= @document.name %></h2>
+<%= form_tag document_path(@document.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@document.name}" %>
+<% end %>
 
-<%= link_to "Back to all documents", documents_path %>
+
+<%= link_to "Aller à l'accueil", documents_path %>
+
+<%= link_to "Mettre à jour", edit_document_path(@document) %>
