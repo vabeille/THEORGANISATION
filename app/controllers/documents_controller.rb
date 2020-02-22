@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR year ILIKE :query"
+      sql_query = "name ILIKE :query OR year ILIKE :query OR client ILIKE :query OR subject ILIKE :query OR localisation ILIKE :query"
       @documents = Document.where(sql_query, query: "%#{params[:query]}%")
     else
       @documents = Document.all
@@ -45,6 +45,8 @@ class DocumentsController < ApplicationController
   private
 
   def allowed_params
-    params.require(:document).permit(:name, :client, :year, :localisation, :subject, :cabinet, :carton)
+    params.require(:document).permit(:name, :client, :year, :localisation, :subject, :cabinet, :carton,
+      place_attributes: [ :id, :cabinet, :localisation ]
+    )
   end
 end

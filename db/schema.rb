@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_041037) do
+ActiveRecord::Schema.define(version: 2020_02_22_004928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,29 @@ ActiveRecord::Schema.define(version: 2020_02_06_041037) do
     t.string "client"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "cabinet"
-    t.string "localisation"
     t.string "name"
     t.string "year"
     t.string "subject"
     t.string "carton"
+    t.bigint "place_id"
+    t.string "cabinet"
+    t.string "localisation"
+    t.index ["place_id"], name: "index_documents_on_place_id"
+  end
+
+  create_table "dossiers", force: :cascade do |t|
+    t.text "content"
+    t.bigint "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_dossiers_on_document_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "cabinet"
+    t.string "localisation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +56,6 @@ ActiveRecord::Schema.define(version: 2020_02_06_041037) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "documents", "places"
+  add_foreign_key "dossiers", "documents"
 end

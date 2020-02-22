@@ -8,14 +8,6 @@
     <%= f.label :client %>
     <%= f.text_field :client %>
   </div>
-  <div class="cabinet">
-    <%= f.label :cabinet %>
-    <%= f.select :cabinet,['Saint-Tropez', 'Marseille ACA', 'Cogolin', 'Paris', 'SGCAM'],  prompt: 'Sélectionnez un cabinet' %>
-  </div>
-  <div class="localisation">
-    <%= f.label :localisation %>
-    <%= f.select :localisation,['Saint-Tropez', 'Marseille ACA', 'Cogolin', 'Paris', 'SGCAM'],prompt: 'Sélectionnez un cabinet' %>
-  </div>
   <div class="année">
     <%= f.label :année %>
     <%= f.select :year, (2000)..(Time.zone.now.year - 3) %>
@@ -28,6 +20,13 @@
     <%= f.label :carton %>
     <%= f.text_field :carton %>
   </div>
+    <div class="localisation">
+      <%= f.label :localisation %>
+      <%= f.select :localisation,['SAINT-TROPEZ - étage', 'SAINT-TROPEZ - cave', 'SAINT-TROPEZ - garage', 'COGOLIN - RDC', 'COGOLIN - garage', 'MARSEILLE ACA - cave grande pièce', 'MARSEILLE ACA - cave pièce entrée', 'MARSEILLE ACA - cave pièce entrée', 'MARSEILLE ACA - cave pièce du fond', 'MARSEILLE ACA - cave passage du fond', 'MARSEILLE ACA - cave pièce chaudière', 'MARSEILLE ACA - petite pièce', 'PARIS - sous-sol', 'MARSEILLE SGCAM - pièce rangement'],prompt: 'Sélectionnez une localisation' %>
+    </div>
+
     <%= f.submit %>
-  <% end %>
 </div>
+<% end %>
+
+
