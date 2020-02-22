@@ -45,8 +45,6 @@ class DocumentsController < ApplicationController
   private
 
   def allowed_params
-    params.require(:document).permit(:name, :client, :year, :localisation, :subject, :cabinet, :carton,
-      place_attributes: [ :id, :cabinet, :localisation ]
-    )
+    params.require(:document).permit(:name, :client, :year, :localisation, :subject, :cabinet, :carton)
   end
 end
