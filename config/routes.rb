@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :dossiers
   # get 'documents/new'
   # get 'documents/create'
   # get 'documents/update'
